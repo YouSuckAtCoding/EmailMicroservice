@@ -3,7 +3,7 @@ package infnet.edu.emailservice;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
-import infnet.edu.emailservice.Domain.EmailObject;
+import infnet.edu.emailservice.Domain.Models.EmailObject;
 import infnet.edu.emailservice.ValueObject.EmailAddress;
 
 import org.junit.jupiter.api.Test;
