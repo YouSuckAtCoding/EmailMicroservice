@@ -1,0 +1,11 @@
+services:
+  mysql:
+    container_name: 'emailmicroservice'
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=emailmicroservicedb'
+      - 'MYSQL_PASSWORD=Numsey@Password!'
+      - 'MYSQL_ROOT_PASSWORD=Numsey@Password!!'
+      - 'MYSQL_USER=myuser'
+    ports:
+      - '3310:3306'

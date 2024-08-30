@@ -1,6 +1,6 @@
 package infnet.edu.emailservice.Domain.Models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import infnet.edu.emailservice.Primitives.EntityRoot;
 import jakarta.persistence.Column;
@@ -18,12 +18,12 @@ public class EmailDTO extends EntityRoot{
     @Column
     public String content;
     @Column
-    public LocalDate date_sent;
+    public LocalDateTime date_sent;
     
     public EmailDTO() {    
     }
     
-    public EmailDTO(long id, String emailAddress, String subject, String content, LocalDate date_sent) {
+    public EmailDTO(long id, String emailAddress, String subject, String content, LocalDateTime date_sent) {
         super(id);
         this.emailAddress = emailAddress;
         this.subject = subject;

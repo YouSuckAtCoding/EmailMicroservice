@@ -10,6 +10,8 @@ import infnet.edu.emailservice.Domain.Models.EmailObject;
 @Service
 public class EmailService {
 
+    private static final String StandardEmailSenderAddress = "marco.gamedev.rg340@gmail.com";
+    private static final String MailSendMsg = "Mail Send...";
     @Autowired
     private JavaMailSender _MailSender;
 
@@ -18,7 +20,7 @@ public class EmailService {
         SimpleMailMessage message = CreateEmailMessage(toEmail, subject, body);
         
         _MailSender.send(message);
-        System.out.println("Mail Send...");
+        System.out.println(MailSendMsg);
     }
 
     public void sendSimpleEmail(EmailObject obj) {
@@ -27,13 +29,13 @@ public class EmailService {
 
         _MailSender.send(message);
 
-        System.out.println("Mail Send...");
+        System.out.println(MailSendMsg);
     }
     
     private SimpleMailMessage CreateEmailMessage(String toEmail, String subject, String body) {
         SimpleMailMessage message = new SimpleMailMessage();
         
-        message.setFrom("marco.gamedev.rg340@gmail.com");
+        message.setFrom(StandardEmailSenderAddress);
         message.setTo(toEmail);
         message.setText(body);
         message.setSubject(subject);

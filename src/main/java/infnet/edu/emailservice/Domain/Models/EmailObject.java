@@ -1,5 +1,7 @@
 package infnet.edu.emailservice.Domain.Models;
 
+import java.time.LocalDateTime;
+
 import infnet.edu.emailservice.Contracts.SendEmailRequest;
 import infnet.edu.emailservice.Primitives.EntityRoot;
 import infnet.edu.emailservice.ValueObject.EmailAddress;
@@ -26,6 +28,16 @@ public class EmailObject extends EntityRoot
         EmailAddress.Create(request.emailAddress).Value(),
         request.subject, 
         request.content);
+    }
+
+    public static EmailDTO MapRequestToEmailDto(EmailObject request) throws Exception
+    {
+        return new EmailDTO(0, 
+        request.emailAddress.value,
+        request.subject, 
+        request.content,
+        LocalDateTime.now()
+        );
     }
 
 }
