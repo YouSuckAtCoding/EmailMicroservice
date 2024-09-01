@@ -1,6 +1,6 @@
 services:
   mysql:
-    container_name: 'emailmicroservice'
+    container_name: 'emailsenderdb'
     image: 'mysql:latest'
     environment:
       - 'MYSQL_DATABASE=emailmicroservicedb'
@@ -9,3 +9,11 @@ services:
       - 'MYSQL_USER=myuser'
     ports:
       - '3310:3306'
+  emailservice:
+    container_name: 'emailmicroservice'
+    image: 'emailsender:latest'
+    ports:
+      - '8080:8080'
+    restart: unless-stopped
+    
+  
