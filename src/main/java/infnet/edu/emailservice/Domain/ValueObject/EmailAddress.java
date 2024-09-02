@@ -1,10 +1,10 @@
-package infnet.edu.emailservice.ValueObject;
+package infnet.edu.emailservice.Domain.ValueObject;
 
 import java.util.List;
 
 import infnet.edu.emailservice.Domain.Errors.EmailDomainErrors;
+import infnet.edu.emailservice.Domain.Primitives.ValueObject;
 import infnet.edu.emailservice.Domain.Shared.Result;
-import infnet.edu.emailservice.Primitives.ValueObject;
 
 public class EmailAddress extends ValueObject{
 

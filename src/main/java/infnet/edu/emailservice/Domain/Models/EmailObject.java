@@ -3,8 +3,8 @@ package infnet.edu.emailservice.Domain.Models;
 import java.time.LocalDateTime;
 
 import infnet.edu.emailservice.Contracts.SendEmailRequest;
-import infnet.edu.emailservice.Primitives.EntityRoot;
-import infnet.edu.emailservice.ValueObject.EmailAddress;
+import infnet.edu.emailservice.Domain.Primitives.EntityRoot;
+import infnet.edu.emailservice.Domain.ValueObject.EmailAddress;
 
 public class EmailObject extends EntityRoot
 {

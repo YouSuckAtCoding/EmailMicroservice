@@ -2,7 +2,7 @@ package infnet.edu.emailservice.Domain.Models;
 
 import java.time.LocalDateTime;
 
-import infnet.edu.emailservice.Primitives.EntityRoot;
+import infnet.edu.emailservice.Domain.Primitives.EntityRoot;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

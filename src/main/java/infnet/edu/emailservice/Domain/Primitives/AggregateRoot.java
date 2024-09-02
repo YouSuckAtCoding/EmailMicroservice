@@ -1,4 +1,4 @@
-package infnet.edu.emailservice.Primitives;
+package infnet.edu.emailservice.Domain.Primitives;
 
 public class AggregateRoot extends EntityRoot{
 

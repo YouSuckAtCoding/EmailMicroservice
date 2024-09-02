@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import infnet.edu.emailservice.Domain.Models.EmailObject;
+import infnet.edu.emailservice.Domain.ValueObject.EmailAddress;
 import infnet.edu.emailservice.Infrastructure.EmailService;
-import infnet.edu.emailservice.ValueObject.EmailAddress;
 
 import org.junit.jupiter.api.Test;
 
