@@ -2,6 +2,9 @@ package infnet.edu.emailservice.Domain.Models;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import infnet.edu.emailservice.Contracts.SendEmailRequest;
 import infnet.edu.emailservice.Domain.Primitives.EntityRoot;
 import infnet.edu.emailservice.Domain.ValueObject.EmailAddress;
@@ -39,6 +42,33 @@ public class EmailObject extends EntityRoot
         LocalDateTime.now()
         );
     }
+    
+    public static EmailObject MapJsonMessageToEmailObject(String message) throws Exception
+    {
 
+        String emailAddressFieldName = "emailAddress";
+        String subjectFieldName = "subject";
+        String contentFieldName = "content";
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        JsonNode tree = mapper.readTree(message);
+
+        EmailObject result = new EmailObject(
+            0,
+            EmailAddress.Create(tree.get(emailAddressFieldName).asText()).Value(),
+            tree.get(subjectFieldName).asText(),
+            tree.get(contentFieldName).asText()
+        );
+
+        return result;
+    }
+
+    public boolean ValidateObject(EmailObject obj)
+    {
+        if(subject.length() == 0 || content.length() == 0 )
+            return false;
+        return true;
+    }
 }
 
