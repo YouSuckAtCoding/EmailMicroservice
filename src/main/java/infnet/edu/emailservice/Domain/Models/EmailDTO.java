@@ -1,15 +1,18 @@
 package infnet.edu.emailservice.Domain.Models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import infnet.edu.emailservice.Domain.Primitives.EntityRoot;
+import infnet.edu.emailservice.Domain.ValueObject.EmailAddress;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Email")
-public class EmailDTO extends EntityRoot{
+public class EmailDTO extends EntityRoot {
 
     @Column
     public String emailAddress;
@@ -19,10 +22,10 @@ public class EmailDTO extends EntityRoot{
     public String content;
     @Column
     public LocalDateTime date_sent;
-    
-    public EmailDTO() {    
+
+    public EmailDTO() {
     }
-    
+
     public EmailDTO(long id, String emailAddress, String subject, String content, LocalDateTime date_sent) {
         super(id);
         this.emailAddress = emailAddress;
@@ -30,7 +33,21 @@ public class EmailDTO extends EntityRoot{
         this.content = content;
         this.date_sent = date_sent;
     }
-    
-   
+
+    public static List<EmailObject> MapRequestToEmailObject(List<EmailDTO> request) throws Exception
+    {
+        List<EmailObject> res = new ArrayList<EmailObject>();
+        for (EmailDTO email : request) {
+            
+            var obj =  new EmailObject(0, 
+            EmailAddress.Create(email.emailAddress).Value(),
+            email.subject, 
+            email.content);
+
+            res.add(obj);
+        }
+
+        return res;
+    }
 
 }

@@ -2,10 +2,13 @@ package infnet.edu.emailservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
 
 import infnet.edu.emailservice.Domain.Models.EmailObject;
 import infnet.edu.emailservice.Domain.ValueObject.EmailAddress;
 import infnet.edu.emailservice.Infrastructure.EmailService;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
@@ -38,6 +41,16 @@ public class EmailServiceTests {
         _Service.sendSimpleEmail(object);
 
 
+    }
+
+    @Test
+    void SHould_Retrieve_Emails_By_Email() throws Exception
+    {
+        String emailAddress = "marco.aferreira@al.infnet.edu.br";
+
+        var result = _Service.GeEmailsByEmail(emailAddress);
+
+        Assert.isTrue(result.getClass() == new ArrayList<EmailObject>().getClass(), "Ok");
     }
 
 }
