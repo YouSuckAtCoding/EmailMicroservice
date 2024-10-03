@@ -50,7 +50,7 @@ public class EmailService {
     public List<EmailObject> GeEmailsByEmail(String emailAddress) throws Exception {
         var emails = _EmailRepository.GetEmailsByEmail(emailAddress);
 
-        List<EmailObject> result = new ArrayList<EmailObject>();
+        List<EmailObject> result = new ArrayList<EmailObject>();      
 
         result = EmailDTO.MapRequestToEmailObject(emails);
 

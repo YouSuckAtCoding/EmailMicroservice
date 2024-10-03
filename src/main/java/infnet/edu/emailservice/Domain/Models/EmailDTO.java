@@ -22,6 +22,38 @@ public class EmailDTO extends EntityRoot {
     public String content;
     @Column
     public LocalDateTime date_sent;
+    
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public LocalDateTime getDate_sent() {
+        return date_sent;
+    }
+
+    public void setDate_sent(LocalDateTime date_sent) {
+        this.date_sent = date_sent;
+    }
 
     public EmailDTO() {
     }

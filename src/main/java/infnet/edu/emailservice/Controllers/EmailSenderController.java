@@ -56,9 +56,9 @@ public class EmailSenderController {
     }
 
     @GetMapping(GetByEmailEndpoint)
-    public ResponseEntity<Result<?>> GetEmailsByEmail(@RequestParam String emailAddress) throws Exception {
+    public ResponseEntity<?> GetEmailsByEmail(@RequestParam String emailAddress) throws Exception {
         try {
-            return new ResponseEntity<>(Result.<List<EmailObject>>Success(_Service.GeEmailsByEmail(emailAddress)),
+            return new ResponseEntity<>(_Service.GeEmailsByEmail(emailAddress),
                     HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
